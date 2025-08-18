@@ -1,4 +1,4 @@
-# Spectator List (EXILED) ![Downloads](https://img.shields.io/github/downloads/Misfiy/SpectatorList-SL/total)
+# Spectator List (EXILED) ![img](https://img.shields.io/github/downloads/Saskyc/SpectatorList-SL/total?style=for-the-badge)
 * A plugin that shows players who is currently spectating them!
 * This plugin requires [[EXILED]](https://github.com/Exiled-Team/EXILED/releases) `9.8.1`
 
