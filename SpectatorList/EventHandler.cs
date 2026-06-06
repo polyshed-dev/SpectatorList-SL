@@ -50,7 +50,7 @@ namespace SpectatorList
                     foreach (Player spectator in player.CurrentSpectatingPlayers.Where(p => p.Role != RoleTypeId.Overwatch))
                         sb.AppendLine(_config.PlayerDisplay.Replace("%name%", spectator.CustomName));
 
-                    BasicElement spectators = new BasicElement(Config.Position, );
+                    BasicElement spectators = new BasicElement(_config.Position, _config.FullText.Replace("%display%", sb.ToString()));
                     display.Show(tagSpectators, spectators);
                 }
 
