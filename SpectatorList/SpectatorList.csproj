@@ -6,6 +6,7 @@
         <AssemblyName>SpectatorList</AssemblyName>
         <TargetFramework>net48</TargetFramework>
         <FileAlignment>512</FileAlignment>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>

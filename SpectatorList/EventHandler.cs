@@ -11,6 +11,8 @@ namespace SpectatorList
 {
     public class EventHandler
     {
+        private static readonly Tag tagSpectators = new();
+        
         private const string CoroutineTag = "Spectator-List"; 
 
         private Config _config => SpectatorList.Instance.Config;
@@ -35,7 +37,6 @@ namespace SpectatorList
                 foreach (Player player in Player.List)
                 {
                     RueDisplay display = RueDisplay.Get(player);
-                    Tag tagSpectators = new Tag();
                     
                     if (player.IsDead || _config.HiddenFor.Contains(player.Role.Team)) continue;
 
