@@ -4,7 +4,6 @@ using System.Text;
 using Exiled.API.Features;
 using MEC;
 using PlayerRoles;
-using UnityEngine;
 using RueI.API;
 using RueI.API.Elements;
 
@@ -51,7 +50,7 @@ namespace SpectatorList
                         sb.AppendLine(_config.PlayerDisplay.Replace("%name%", spectator.CustomName));
 
                     BasicElement spectators = new BasicElement(_config.Position, _config.FullText.Replace("%display%", sb.ToString()));
-                    display.Show(tagSpectators, spectators);
+                    display.Show(tagSpectators, spectators, 15F + _config.RefreshRate);
                 }
 
                 yield return Timing.WaitForSeconds(_config.RefreshRate);

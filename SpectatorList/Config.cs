@@ -18,7 +18,8 @@ namespace SpectatorList
 
         public string FullText { get; set; } = "<size=23><align=right>%display%</size><voffset=900> </voffset></align>";
         public string PlayerDisplay { get; set; } = "-> %name%";
-        public string NoSpectators { get; set; } = "No one is currently spectating you.";
+        [Description("Shows no text when there are no spectators by default")]
+        public string NoSpectators { get; set; } = "";
         public string Spectators { get; set; } = "👥 Spectators (%amount%)";
         public float Position { get; set; } = 0;
     }

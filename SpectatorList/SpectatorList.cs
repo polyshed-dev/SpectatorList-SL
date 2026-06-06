@@ -9,8 +9,8 @@ namespace SpectatorList
 
         public override string Name { get; } = "Spectator List";
         public override string Author { get; } = "polyshed";
-        public override Version Version { get; } = new Version(1,1,1);
-        public override Version RequiredExiledVersion { get; } = new Version(8, 8, 1);
+        public override Version Version { get; } = new Version(1,2,0);
+        public override Version RequiredExiledVersion { get; } = new Version(9, 14, 2);
 
         private EventHandler _handler;
 
