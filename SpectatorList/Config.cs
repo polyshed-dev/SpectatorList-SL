@@ -20,5 +20,6 @@ namespace SpectatorList
         public string PlayerDisplay { get; set; } = "-> %name%";
         public string NoSpectators { get; set; } = "No one is currently spectating you.";
         public string Spectators { get; set; } = "👥 Spectators (%amount%)";
+        public float Position { get; set; } = 0;
     }
 }

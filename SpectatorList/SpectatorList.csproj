@@ -14,7 +14,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="EXILED" Version="8.8.1" />
+      <PackageReference Include="Exiled.Dev.References" Version="1.0.4" />
+      <PackageReference Include="ExMod.Exiled" Version="9.14.2" />
+      <PackageReference Include="RueI" Version="3.1.2" />
     </ItemGroup>
 
 </Project>

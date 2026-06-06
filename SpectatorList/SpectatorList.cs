@@ -8,7 +8,7 @@ namespace SpectatorList
         public static SpectatorList Instance { get; private set; }
 
         public override string Name { get; } = "Spectator List";
-        public override string Author { get; } = "@misfiy";
+        public override string Author { get; } = "polyshed";
         public override Version Version { get; } = new Version(1,1,1);
         public override Version RequiredExiledVersion { get; } = new Version(8, 8, 1);
 

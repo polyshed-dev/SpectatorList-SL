@@ -5,6 +5,8 @@ using Exiled.API.Features;
 using MEC;
 using PlayerRoles;
 using UnityEngine;
+using RueI.API;
+using RueI.API.Elements;
 
 namespace SpectatorList
 {
@@ -25,7 +27,7 @@ namespace SpectatorList
             Timing.KillCoroutines(CoroutineTag);
         }
 
-        private void OnRoundStarted() => Timing.RunCoroutine(DoList().CancelWith(Server.Host.GameObject), CoroutineTag);
+        private void OnRoundStarted() => Timing.RunCoroutine(DoList().CancelWith(Server.Host.GameObject), CoroutineTag); 
 
         private IEnumerator<float> DoList()
         {
@@ -33,6 +35,9 @@ namespace SpectatorList
             {
                 foreach (Player player in Player.List)
                 {
+                    RueDisplay display = RueDisplay.Get(player);
+                    Tag tagSpectators = new Tag();
+                    
                     if (player.IsDead || _config.HiddenFor.Contains(player.Role.Team)) continue;
 
                     int count = player.CurrentSpectatingPlayers.Count(p => p.Role != RoleTypeId.Overwatch);
@@ -45,7 +50,8 @@ namespace SpectatorList
                     foreach (Player spectator in player.CurrentSpectatingPlayers.Where(p => p.Role != RoleTypeId.Overwatch))
                         sb.AppendLine(_config.PlayerDisplay.Replace("%name%", spectator.CustomName));
 
-                    player.ShowHint(_config.FullText.Replace("%display%", sb.ToString()), _config.RefreshRate + 0.15f);
+                    BasicElement spectators = new BasicElement(Config.Position, );
+                    display.Show(tagSpectators, spectators);
                 }
 
                 yield return Timing.WaitForSeconds(_config.RefreshRate);
