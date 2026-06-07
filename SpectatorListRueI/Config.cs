@@ -7,5 +7,11 @@ namespace SpectatorListRueI
         public bool IsEnabled { get; set; }
         public bool Debug { get; set; }
         public float Position { get; set; }
+        public string Spectators { get; set; } = "👥 Spectators (%amount%)";
+        public string PlayerDisplay { get; set; } = "-> %name%";
+        public string FullText { get; set; } = "<size=23><align=right>%display%</size><voffset=900> </voffset></align>";
+        public float RefreshRate { get; set; } = 2F;
+        public int MaximumLines { get; set; } = 6;
+        public string OverflowText { get; set; } = "%overflow% more...";
     }
 }

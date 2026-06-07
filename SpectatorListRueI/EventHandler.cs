@@ -1,25 +1,50 @@
-using Exiled.Events;
-using Exiled.Events.Handlers;
-using Exiled.Events.Features;
 using System;
-using Exiled.API.Features;
+using System.Linq;
 using Exiled.Events.EventArgs.Player;
 using PlayerRoles;
-using RueI.API;
-using System.Linq;
-using System.Collections.Generic;
+using Exiled.API.Features;
 using RueI.API.Elements;
-using UnityEngine;
+using System.Text;
+using RueI.API;
 
 namespace SpectatorListRueI
 {
     public class EventHandler
     {
-        protected static Config _config => Plugin.Instance.Config;
-
+        private readonly DynamicElement _spectatorElement;
+        private Config _config => Plugin.Instance.Config;
+        private static readonly Tag tagSpectator = new("SpectatorListElement");
+        
         public EventHandler()
         {
             Exiled.Events.Handlers.Player.Verified += OnVerified;
+            
+            _spectatorElement = new DynamicElement(Plugin.Instance.Config.Position, (hub =>
+            {
+                Player player = Player.Get(hub);
+                int count = player.CurrentSpectatingPlayers.Count(p => p.Role != RoleTypeId.Overwatch);
+
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine(count == 0
+                    ? String.Empty
+                    : _config.Spectators.Replace("%amount%", count.ToString()));
+                
+                int iteration = 0;
+                foreach (Player spectator in player.CurrentSpectatingPlayers.Where(p => p.Role != RoleTypeId.Overwatch))
+                {
+                    sb.AppendLine(_config.PlayerDisplay.Replace("%name%", spectator.CustomName));
+                    iteration++;
+
+                    if (iteration > _config.MaximumLines)
+                    {
+                        int overflowCount = count - _config.MaximumLines;
+                        sb.AppendLine(_config.OverflowText.Replace("%overflow%", overflowCount.ToString()));
+                        break;
+                    }
+                }
+
+                return _config.FullText.Replace("%display%", sb.ToString());
+            }));
         }
 
         ~EventHandler()
@@ -30,26 +55,8 @@ namespace SpectatorListRueI
         private void OnVerified(VerifiedEventArgs ev)
         {
             RueDisplay display = RueDisplay.Get(ev.Player);
-            
+            display.Show(tagSpectator, _spectatorElement, _config.RefreshRate);
         }
         
-        
-
-        private void UpdateSpectators()
-        {
-            foreach (Exiled.API.Features.Player player in Exiled.API.Features.Player.List)
-            {
-                if (player.IsDead == true) continue;
-                
-                int spectatorCount = player.CurrentSpectatingPlayers.Count(p => p.Role != RoleTypeId.Overwatch);
-
-                foreach (Exiled.API.Features.Player spectator in player.CurrentSpectatingPlayers)
-                {
-                    
-                }
-                
-            }
-        }
-
     }
 }

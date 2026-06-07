@@ -6,6 +6,7 @@ namespace SpectatorListRueI
     public class Plugin : Plugin<Config>
     {
         public static Plugin Instance {get; private set;}
+        public Config Config { get; } = new Config();
         
         public override string Name { get; } = "SpectatorListRueI";
         public override string  Author { get; } = "polyshed";
