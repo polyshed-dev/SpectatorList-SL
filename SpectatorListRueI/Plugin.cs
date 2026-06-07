@@ -12,7 +12,7 @@ namespace SpectatorListRueI
         public override Version Version { get; } = new Version(0, 0, 1);
         public override Version RequiredExiledVersion { get; } = new Version(9, 14, 2);
 
-        private System.EventHandler _handler;
+        private EventHandler _handler;
 
         public override void OnEnabled()
         {

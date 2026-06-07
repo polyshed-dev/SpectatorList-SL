@@ -6,5 +6,6 @@ namespace SpectatorListRueI
     {
         public bool IsEnabled { get; set; }
         public bool Debug { get; set; }
+        public float Position { get; set; }
     }
 }

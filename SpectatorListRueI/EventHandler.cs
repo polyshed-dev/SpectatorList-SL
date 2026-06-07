@@ -8,13 +8,14 @@ using PlayerRoles;
 using RueI.API;
 using System.Linq;
 using System.Collections.Generic;
+using RueI.API.Elements;
 using UnityEngine;
 
 namespace SpectatorListRueI
 {
     public class EventHandler
     {
-        private static Config _config => Plugin.Instance.Config;
+        protected static Config _config => Plugin.Instance.Config;
 
         public EventHandler()
         {
@@ -25,14 +26,14 @@ namespace SpectatorListRueI
         {
             Exiled.Events.Handlers.Player.Verified -= OnVerified;
         }
-        
-        
 
         private void OnVerified(VerifiedEventArgs ev)
         {
             RueDisplay display = RueDisplay.Get(ev.Player);
             
         }
+        
+        
 
         private void UpdateSpectators()
         {
@@ -41,7 +42,11 @@ namespace SpectatorListRueI
                 if (player.IsDead == true) continue;
                 
                 int spectatorCount = player.CurrentSpectatingPlayers.Count(p => p.Role != RoleTypeId.Overwatch);
-                
+
+                foreach (Exiled.API.Features.Player spectator in player.CurrentSpectatingPlayers)
+                {
+                    
+                }
                 
             }
         }
