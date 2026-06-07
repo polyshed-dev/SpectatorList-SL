@@ -35,7 +35,7 @@ namespace SpectatorListRueI
                     sb.AppendLine(_config.PlayerDisplay.Replace("%name%", spectator.CustomName));
                     iteration++;
 
-                    if (iteration > _config.MaximumLines)
+                    if (iteration >= _config.MaximumLines)
                     {
                         int overflowCount = count - _config.MaximumLines;
                         sb.AppendLine(_config.OverflowText.Replace("%overflow%", overflowCount.ToString()));
@@ -58,7 +58,7 @@ namespace SpectatorListRueI
         private void OnVerified(VerifiedEventArgs ev)
         {
             RueDisplay display = RueDisplay.Get(ev.Player);
-            display.Show(tagSpectator, _spectatorElement, _config.RefreshRate);
+            display.Show(tagSpectator, _spectatorElement);
         }
         
     }
