@@ -4,9 +4,9 @@ namespace SpectatorListRueI
 {
     public class Config : IConfig
     {
-        public bool IsEnabled { get; set; }
-        public bool Debug { get; set; }
-        public float Position { get; set; }
+        public bool IsEnabled { get; set; } = true;
+        public bool Debug { get; set; } = false;
+        public float Position { get; set; } = 0F;
         public string Spectators { get; set; } = "👥 Spectators (%amount%)";
         public string PlayerDisplay { get; set; } = "-> %name%";
         public string FullText { get; set; } = "<size=23><align=right>%display%</size><voffset=900> </voffset></align>";

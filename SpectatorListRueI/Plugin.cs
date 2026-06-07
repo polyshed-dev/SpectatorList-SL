@@ -24,7 +24,7 @@ namespace SpectatorListRueI
 
         public override void OnDisabled()
         {
-            
+            _handler.UnregisterEvents();
             base.OnDisabled();
             
             _handler = null;

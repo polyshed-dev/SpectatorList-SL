@@ -35,7 +35,7 @@ namespace SpectatorListRueI
                     sb.AppendLine(_config.PlayerDisplay.Replace("%name%", spectator.CustomName));
                     iteration++;
 
-                    if (iteration >= _config.MaximumLines)
+                    if (iteration >= _config.MaximumLines - 1)
                     {
                         int overflowCount = count - _config.MaximumLines;
                         sb.AppendLine(_config.OverflowText.Replace("%overflow%", overflowCount.ToString()));
@@ -50,7 +50,7 @@ namespace SpectatorListRueI
             };
         }
 
-        ~EventHandler()
+        public void UnregisterEvents()
         {
             Exiled.Events.Handlers.Player.Verified -= OnVerified;
         }
