@@ -9,7 +9,7 @@ namespace SpectatorListRueI
         public float Position { get; set; } = 0F;
         public string Spectators { get; set; } = "👥 Spectators (%amount%)";
         public string PlayerDisplay { get; set; } = "-> %name%";
-        public string FullText { get; set; } = "<size=23><align=right>%display%</size><voffset=900> </voffset></align>";
+        public string FullText { get; set; } = "<size=23><align=right>%display%</size></align>";
         public float RefreshRate { get; set; } = 2F;
         public int MaximumLines { get; set; } = 6;
         public string OverflowText { get; set; } = "%overflow% more...";

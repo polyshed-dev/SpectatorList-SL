@@ -32,15 +32,16 @@ namespace SpectatorListRueI
                 int iteration = 0;
                 foreach (Player spectator in player.CurrentSpectatingPlayers.Where(p => p.Role != RoleTypeId.Overwatch))
                 {
-                    sb.AppendLine(_config.PlayerDisplay.Replace("%name%", spectator.CustomName));
-                    iteration++;
-
-                    if (iteration >= _config.MaximumLines - 1)
+                    if (iteration >= _config.MaximumLines)
                     {
-                        int overflowCount = count - _config.MaximumLines;
+                        int overflowCount = count - iteration;
                         sb.AppendLine(_config.OverflowText.Replace("%overflow%", overflowCount.ToString()));
                         break;
                     }
+                    
+                    sb.AppendLine(_config.PlayerDisplay.Replace("%name%", spectator.CustomName));
+                    
+                    iteration++;
                 }
 
                 return _config.FullText.Replace("%display%", sb.ToString());

@@ -9,7 +9,7 @@ namespace SpectatorListRueI
         
         public override string Name { get; } = "SpectatorListRueI";
         public override string  Author { get; } = "polyshed.";
-        public override Version Version { get; } = new Version(0, 0, 1);
+        public override Version Version { get; } = new Version(0, 1, 0);
         public override Version RequiredExiledVersion { get; } = new Version(9, 14, 2);
 
         private EventHandler _handler;
