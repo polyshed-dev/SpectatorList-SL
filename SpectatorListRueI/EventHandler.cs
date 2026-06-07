@@ -44,7 +44,10 @@ namespace SpectatorListRueI
                 }
 
                 return _config.FullText.Replace("%display%", sb.ToString());
-            }));
+            }))
+            {
+                UpdateInterval = TimeSpan.FromSeconds(_config.RefreshRate)
+            };
         }
 
         ~EventHandler()
