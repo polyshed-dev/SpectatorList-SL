@@ -8,4 +8,6 @@ Simple [EXILED](https://github.com/ExMod-Team/EXILED) plugin that displays who i
 2. Put the file in your EXILED plugins folder.
 3. Restart your server to activate the plugin.
 # Contact
-Contact me on Discord: [polyshed.](https://discord.com/users/783962692150624316)
+Please contact me if the plugin is broken/has issues/doesn't work as intended.
+
+Discord: [polyshed.](https://discord.com/users/783962692150624316)
